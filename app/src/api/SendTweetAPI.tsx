@@ -2,8 +2,18 @@ import * as React from 'react';
 import { Dispatch, Action } from 'redux';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from 'store';
-import { sendTweet } from 'clients/tweetsAPI';
 import { tweetsAPIActions } from 'actions/tweetsAPIActions';
+
+const sendTweet = (content: string) => fetch('http://localhost/tweets', {
+  method: 'POST',
+  mode: 'cors',
+  credentials: 'include',
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({ content }),
+});
 
 export const SendTweetAPI: React.FC<{}> = () => {
   const dispatch = useDispatch<Dispatch<Action>>();

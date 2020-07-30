@@ -2,9 +2,14 @@ import * as React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Dispatch, Action } from 'redux';
 import { RootState } from 'store';
-import { fetchTweets } from 'clients/tweetsAPI';
 import { entitiesActions } from 'actions/entitiesActions';
 import { tweetsAPIActions } from 'actions/tweetsAPIActions';
+
+const fetchTweets = () => fetch('http://localhost/tweets', {
+  method: 'GET',
+  mode: 'cors',
+  credentials: 'include',
+});
 
 export const UpdateTweetsAPI: React.FC<{}> = () => {
   const dispatch = useDispatch<Dispatch<Action>>();
