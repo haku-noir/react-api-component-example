@@ -1,30 +1,30 @@
 import { reducerWithInitialState } from 'typescript-fsa-reducers';
 import { tweetsAPIActions } from 'actions/tweetsAPIActions';
-import { TweetState } from './entitiesReducer';
 
 export type TweetsAPIState = {
-  update: boolean,
-  newTweet: TweetState,
+  updating: boolean,
+  newContent: string,
 };
 
 const initialState: TweetsAPIState = {
-  update: true,
-  newTweet: {
-    id: 0,
-    content: ''
-  },
+  updating: true,
+  newContent: '',
 };
 
 export const tweetsAPIReducer = reducerWithInitialState(initialState)
-  .case(tweetsAPIActions.updateTweets, (state: TweetsAPIState): TweetsAPIState => ({
+  .case(tweetsAPIActions.updateTweets, (state: TweetsAPIState) => ({
     ...state,
-    update: true,
+    updating: true,
   }))
-  .case(tweetsAPIActions.updateTweetsDone, (state: TweetsAPIState): TweetsAPIState => ({
+  .case(tweetsAPIActions.updateTweetsDone, (state: TweetsAPIState) => ({
     ...state,
-    update: false,
+    updating: false,
   }))
-  .case(tweetsAPIActions.sendTweet, (state: TweetsAPIState, payload: TweetState): TweetsAPIState => ({
+  .case(tweetsAPIActions.sendTweet, (state: TweetsAPIState, payload: string) => ({
     ...state,
-    newTweet: payload
+    newContent: payload
+  }))
+  .case(tweetsAPIActions.sendTweetDone, (state: TweetsAPIState) => ({
+    ...state,
+    newContent: ''
   }));

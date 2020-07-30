@@ -1,5 +1,3 @@
-import { TweetState } from "reducers/entitiesReducer";
-
 const baseURL = 'http://localhost';
 
 export const fetchTweets = () => fetch(`${baseURL}/tweets`, {
@@ -8,7 +6,7 @@ export const fetchTweets = () => fetch(`${baseURL}/tweets`, {
   credentials: 'include',
 });
 
-export const sendTweet = (tweet: TweetState) => fetch(`${baseURL}/tweets`, {
+export const sendTweet = (content: string) => fetch(`${baseURL}/tweets`, {
   method: 'POST',
   mode: 'cors',
   credentials: 'include',
@@ -16,5 +14,5 @@ export const sendTweet = (tweet: TweetState) => fetch(`${baseURL}/tweets`, {
     'Accept': 'application/json',
     'Content-Type': 'application/json',
   },
-  body: JSON.stringify(tweet),
+  body: JSON.stringify({ content }),
 });
