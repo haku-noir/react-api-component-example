@@ -11,7 +11,7 @@ export const TweetList: React.FC<IProps> = (props: IProps) => {
   const dispatch = useDispatch<Dispatch<Action>>();
 
   const tweets = useSelector<RootState, EntitiesState["tweets"]>(
-    state => state.entires.tweets
+    state => state.entities.tweets
   );
 
   const _props = { tweets }
