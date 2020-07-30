@@ -9,25 +9,26 @@ import { tweetsAPIActions } from 'actions/tweetsAPIActions';
 export const UpdateTweetsAPI: React.FC<{}> = () => {
   const dispatch = useDispatch<Dispatch<Action>>();
 
-  const update = useSelector<RootState, boolean>(state => state.tweetsAPI.update);
+  const updating = useSelector<RootState, boolean>(
+    state => state.tweetsAPI.updating
+  );
 
   React.useEffect(() => {
-    if(!update) return;
+    if(!updating) return;
 
     fetchTweets()
-      .then((res) => res.json())
-      .then((res) => {
-        const tweets = res.tweets;
-
-        if (tweets) {
-          dispatch(entitiesActions.updateTweets(tweets));
-        }
+      .then(res => res.json())
+      .then(res => {
+        if(!res.tweets) return;
+        dispatch(entitiesActions.updateTweets(res.tweets));
+      })
+      .then(() => {
         dispatch(tweetsAPIActions.updateTweetsDone());
       })
       .catch(() => {
         dispatch(tweetsAPIActions.updateTweetsDone());
       });
-  }, [update]);
+  }, [updating]);
 
   return null;
 };
