@@ -14,17 +14,17 @@ const initialState: EntitiesState = {
   tweets: [
     {
       id: 1,
-      content: "Hello"
+      content: 'Hello',
     },
     {
       id: 2,
-      content: "World"
+      content: 'World',
     },
   ],
 };
 
 export const entitiesReducer = reducerWithInitialState(initialState)
-  .case(entitiesActions.updateTweets, (state: EntitiesState, payload: EntitiesState["tweets"]): EntitiesState => ({
+  .case(entitiesActions.updateTweets, (state: EntitiesState, payload: EntitiesState['tweets']): EntitiesState => ({
     ...state,
     tweets: payload,
   }));

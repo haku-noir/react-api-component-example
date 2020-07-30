@@ -22,17 +22,17 @@ export const UpdateTweetsAPI: React.FC<{}> = () => {
     非同期処理開始のトリガーとなるAPIReducerが管理するプロパティ
   */
   const updating = useSelector<RootState, boolean>(
-    state => state.tweetsAPI.updating
+    (state) => state.tweetsAPI.updating,
   );
 
   React.useEffect(() => {
-    if(!updating) return;
+    if (!updating) return;
 
     // 2. サーバからツイート全体を取得
     fetchTweets()
-      .then(res => res.json())
-      .then(res => {
-        if(!res.tweets) return;
+      .then((res) => res.json())
+      .then((res) => {
+        if (!res.tweets) return;
 
         // 3. entitiesReducerが管理するtweetsプロパティに取得したツイート全体を保存
         dispatch(entitiesActions.updateTweets(res.tweets));

@@ -22,9 +22,9 @@ export const tweetsAPIReducer = reducerWithInitialState(initialState)
   }))
   .case(tweetsAPIActions.sendTweet, (state: TweetsAPIState, payload: string) => ({
     ...state,
-    newContent: payload
+    newContent: payload,
   }))
   .case(tweetsAPIActions.sendTweetDone, (state: TweetsAPIState) => ({
     ...state,
-    newContent: ''
+    newContent: '',
   }));

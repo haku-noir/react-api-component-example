@@ -17,7 +17,7 @@ export const createStore = (history: History) => {
   const rootReducer = combineReducers<RootState>({
     router: connectRouter(history),
     entities: entitiesReducer,
-    tweetsAPI: tweetsAPIReducer
+    tweetsAPI: tweetsAPIReducer,
   });
 
   return reduxCreateStore(
@@ -29,4 +29,4 @@ export const createStore = (history: History) => {
       ),
     ),
   );
-}
+};

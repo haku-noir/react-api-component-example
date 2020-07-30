@@ -60,7 +60,7 @@ export const TweetForm: React.FC<IProps> = (props: IProps) => {
           label="Tweet"
           variant="outlined"
           value={text}
-          onChange={event => updateText(String(event.target.value))}
+          onChange={(event) => updateText(String(event.target.value))}
         />
       </Grid>
       <Grid item xs={2}>
@@ -71,7 +71,7 @@ export const TweetForm: React.FC<IProps> = (props: IProps) => {
             updateText('');
           }}
         >
-        Send
+          Send
         </Button>
       </Grid>
     </Grid>

@@ -12,7 +12,7 @@ const sendTweet = (content: string) => fetch('http://localhost/tweets', {
   mode: 'cors',
   credentials: 'include',
   headers: {
-    'Accept': 'application/json',
+    Accept: 'application/json',
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({ content }),
@@ -26,11 +26,11 @@ export const SendTweetAPI: React.FC<{}> = () => {
     非同期処理開始のトリガーとなるAPIReducerが管理するプロパティ
   */
   const newContent = useSelector<RootState, string>(
-    state => state.tweetsAPI.newContent
+    (state) => state.tweetsAPI.newContent,
   );
 
   React.useEffect(() => {
-    if(newContent === '') return;
+    if (newContent === '') return;
 
     // 3. サーバへツイートを送信
     sendTweet(newContent)

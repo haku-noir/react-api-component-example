@@ -1,5 +1,4 @@
 import actionCreatorFactory from 'typescript-fsa';
-import { TweetState } from 'reducers/entitiesReducer';
 
 const actionCreator = actionCreatorFactory();
 

@@ -6,18 +6,16 @@ import ListItem from '@material-ui/core/ListItem';
 import { Tweet } from './Tweet';
 
 type IProps = {
-  tweets: EntitiesState["tweets"]
+  tweets: EntitiesState['tweets']
 };
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      width: '100%',
-      maxWidth: '36ch',
-      backgroundColor: theme.palette.background.paper,
-    },
-  }),
-);
+const useStyles = makeStyles((theme: Theme) => createStyles({
+  root: {
+    width: '100%',
+    maxWidth: '36ch',
+    backgroundColor: theme.palette.background.paper,
+  },
+}));
 
 export const TweetList: React.FC<IProps> = (props: IProps) => {
   const { tweets } = props;

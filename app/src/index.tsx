@@ -13,9 +13,9 @@ const store = createStore(history);
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-       <Switch>
-         <Route exact path={'/'} component={TweetPanel}/>
-       </Switch>
+      <Switch>
+        <Route exact path="/" component={TweetPanel} />
+      </Switch>
     </ConnectedRouter>
   </Provider>,
   document.getElementById('root'),
