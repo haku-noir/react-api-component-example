@@ -1,0 +1,32 @@
+version: "3"
+services:
+  app:
+    build: "./app"
+    container_name: "twitter_app"
+    ports:
+      - "127.0.0.1:3000:3000"
+    volumes:
+      - "./:/project"
+    command: "bash -c 'cd /project/app && npm start'"
+    tty: true
+  api:
+    build: "./api"
+    container_name: "twitter_api"
+    ports:
+      - "127.0.0.1:80:80"
+    volumes:
+      - "./:/project"
+    command: "rails server -b '0.0.0.0' -p 80"
+    tty: true
+    links:
+      - db
+    environment:
+      - DATABASE_HOST=db
+  db:
+    image: mysql:5.7
+    container_name: "twitter_db"
+    ports:
+      - "3306:3306"
+    environment:
+      - "MYSQL_ROOT_PASSWORD=password"
+      - "MYSQL_DATABASE=root"
