@@ -1,0 +1,19 @@
+{
+  "name": "react-api-component-example",
+  "version": "1.0.0",
+  "description": "Example of API Component",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haku-noir/react-api-component-example.git"
+  },
+  "author": "Riku Hatano <hakunoir.00@gmail.com> (https://qiita.com/haku-noir)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/haku-noir/react-api-component-example/issues"
+  },
+  "homepage": "https://github.com/haku-noir/react-api-component-example#readme"
+}
