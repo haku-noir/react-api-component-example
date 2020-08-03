@@ -1,6 +1,16 @@
 # react-api-component-example
 Example of API Component
 
+## Usage
+```
+git clone https://github.com/haku-noir/react-api-component-example.git
+cd react-api-component-example/
+docker-compose run --rm app bash -c "cd /project/app && npm i"
+
+docker-compose up -d --build
+docker exec twitter_api bash -c "rake db:create db:migrate"
+```
+
 # React + Redux でミドルウェアを使わないシンプルな非同期処理
 ## はじめに
 React.useEffectのみを持つコンポーネント(APIコンポーネント)を利用することで、非同期処理を行う方法を紹介します。APIコンポーネントを用いることで、非同期処理を含めたデータの流れがとてもシンプルになります。
